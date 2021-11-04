@@ -1,13 +1,18 @@
 import "./App.css";
 import { useState } from "react";
-import Login from "./components/Login";
-import Nav from "./components/Nav";
-import Home from "./components/Home";
-import NotFound from "./components/NotFound";
+import Login from "./pages/Login";
+import Nav from "./pages/Nav";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
+import { UserContext } from "./context/UserContext";
+import LoginContext from "./context/LoginContext";
+import LogoutContext from "./context/LogoutContext";
 
 function App() {
   const [isLoggedIn, setLoggedIn] =useState(false);
+  const [user, setUser] = useState();
+
   return (
     <>
       <Router>
@@ -24,6 +29,13 @@ function App() {
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>
+
+
+      <UserContext.Provider value={{user, setUser}}>
+        <LoginContext />
+        <br />
+        <LogoutContext />
+      </UserContext.Provider>
     </>
   );
 }
