@@ -1,6 +1,6 @@
 import React from 'react';
 
- function ListComponent (){
+ function DogFactList (){
 
     return(
 
@@ -12,4 +12,4 @@ import React from 'react';
 
 }
 
-export default ListComponent;
+export default DogFactList;

@@ -19,6 +19,11 @@ function Nav() {
             Login
           </NavLink>
         </Item>
+        <Item>
+          <NavLink to="/dogFacts">
+            Dog Facts
+          </NavLink>
+        </Item>
       </Menu>
     </>
   );

@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Nav from "./pages/Nav";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import DogFactList from "./components/DogFactList";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -39,6 +40,7 @@ function App() {
             <Switch>
               <Route path="/home" component={Home} />
               <Route path="/login" component={Login} />
+              <Route path="/dogFacts" component={DogFactList} />
               <Route exact path="/">
                 <>{!isLoggedIn && <Redirect to={"/login"}></Redirect>}</>
               </Route>
