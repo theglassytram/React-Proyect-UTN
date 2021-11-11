@@ -1,16 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import Menu from "antd/lib/menu";
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
+
+const { Item } = Menu;
 
 function Nav() {
+  return (
+    <>
 
-    return (
-        <>
-            <nav>
-                <li className="nav-item"><Link to="/home">Home</Link></li>
-                <li className="nav-item"><Link to="/login">Login</Link></li>
-            </nav>
-        </>
-    )
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+        <Item>
+          <NavLink to="/home">
+            Home
+          </NavLink>
+        </Item>
+        <Item>
+          <NavLink to="/login">
+            Login
+          </NavLink>
+        </Item>
+      </Menu>
+    </>
+  );
 }
 
 export default Nav;
