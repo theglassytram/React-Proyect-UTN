@@ -1,20 +1,16 @@
-import React, { useContext } from 'react';
-import { UserContext } from './UserContext';
+import React, { useContext } from "react";
+import { UserContext } from "./UserContext";
 
- function LogoutContext (){
+function LogoutContext() {
+  const { user, setUser } = useContext(UserContext);
 
-    const {user, setUser} = useContext(UserContext);
-
-    return(
-
-        <>
-            <h3>Logout</h3>
-            {JSON.stringify(user)}
-            <button onClick={() => setUser({})}>Logout</button>
-        </>
-
-    )
-
+  return (
+    <>
+      <h3>Logout</h3>
+      {JSON.stringify(user)}
+      <button onClick={() => setUser({})}>Logout</button>
+    </>
+  );
 }
 
 export default LogoutContext;
