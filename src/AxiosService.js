@@ -1,10 +1,11 @@
-import axios from 'axios';
 import { AxiosRequest } from "./AxiosRequest";
 
-export const getDogFacts = () => {
-    return AxiosRequest.get("https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all");
+export const getCatFacts = () => {
+  return AxiosRequest.get(
+    '/facts'
+  );
 };
 
-export const getSpecificDogFact = id => {
-    return AxiosRequest.get(`?index=${id}`);
-}
+export const getSpecificCatFact = (id) => {
+  return AxiosRequest.get(`https://cat-fact.herokuapp.com/facts/:${id}`);
+};
