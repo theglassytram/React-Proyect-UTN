@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as AxiosService from "../AxiosService";
 import NotFound from "../pages/NotFound";
+import { HeartOutlined } from "@ant-design/icons";
 
 const CatFactInfo = () => {
   const [factDetailState, setFactDetail] = useState<any>();
@@ -11,7 +12,7 @@ const CatFactInfo = () => {
   useEffect(() => {
     AxiosService.getSpecificCatFact(id)
       .then((data: any) => {
-        setFactDetail(data);
+        setFactDetail(JSON.stringify(data));
       })
       .catch((err) => {
         setFactDetail(undefined);
@@ -23,7 +24,7 @@ const CatFactInfo = () => {
       {factDetailState === undefined || factDetailState === "" ? (
         <NotFound />
       ) : (
-        <>{JSON.stringify(factDetailState)} </>
+        <>{factDetailState.text} </>
       )}
     </>
   );
