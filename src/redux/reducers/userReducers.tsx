@@ -1,8 +1,8 @@
 import { CREATE_USER, LOGOUT_USER, SIGNIN_USER, SETDATA_USER } from "../../config/constans";
 import { AuthAction }  from "../store";
-import { IUser } from "../../interfaces/users/user";
+import { IUser } from "../../interfaces/User";
 
-const initialStateUser: IUser = {uid:"",authenticated:false,json_stringify:"",favorites:[],numberpage:1};
+const initialStateUser: IUser = {uid:"",authenticated:false,favorites:[],numberpage:1};
 
 export default (state = initialStateUser, action: AuthAction) => {
   switch(action.type) {
