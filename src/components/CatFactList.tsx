@@ -2,16 +2,17 @@ import React from "react";
 import { List, Typography, Divider } from "antd";
 import { useEffect, useState } from "react";
 import * as AxiosService from "../AxiosService";
-import { FactList } from "../interfaces/DogFactsListInterface";
+import { CatFacts } from "../interfaces/CatFactsListInterface";
+import { Link } from "react-router-dom";
 
-const DogFactList = () => {
-  const [listState, setList] = useState<Array<FactList>>([]);
+const CatFactList = () => {
+  const [listState, setList] = useState<Array<CatFacts>>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-    AxiosService.getDogFacts()
-      .then(({ data }: { data: Array<FactList> }) => {
+    AxiosService.getCatFacts()
+      .then(({ data }: { data: Array<CatFacts> }) => {
         setList(data);
       })
       .catch(() => {
@@ -24,15 +25,17 @@ const DogFactList = () => {
 
   return (
     <>
-      <Divider orientation="left">Dog Facts Lists</Divider>
+      <Divider orientation="left">Cat Facts Lists</Divider>
       <List
-        header={<div>List of dog Facts</div>}
+        header={<div>List of cat Facts</div>}
         bordered
         dataSource={listState}
         loading={loading}
-        renderItem={(item: FactList) => (
+        renderItem={(item: CatFacts) => (
           <List.Item>
-            <Typography.Text mark>[Fact]</Typography.Text> {item.name}
+            <Link to={`/catFactInfo/${item._id}`}>
+              <Typography.Text mark>[Fact]</Typography.Text> {item.text}
+            </Link>
           </List.Item>
         )}
       />
@@ -40,4 +43,4 @@ const DogFactList = () => {
   );
 };
 
-export default DogFactList;
+export default CatFactList;
