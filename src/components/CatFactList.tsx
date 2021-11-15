@@ -3,6 +3,7 @@ import { List, Typography, Divider } from "antd";
 import { useEffect, useState } from "react";
 import * as AxiosService from "../AxiosService";
 import { CatFacts } from "../interfaces/CatFactsListInterface";
+import { Link } from "react-router-dom";
 
 const CatFactList = () => {
   const [listState, setList] = useState<Array<CatFacts>>([]);
@@ -32,7 +33,9 @@ const CatFactList = () => {
         loading={loading}
         renderItem={(item: CatFacts) => (
           <List.Item>
-            <Typography.Text mark>[Fact]</Typography.Text> {item.text}
+            <Link to={`/catFactInfo/${item.id}`}>
+              <Typography.Text mark>[Fact]</Typography.Text> {item.text}
+            </Link>
           </List.Item>
         )}
       />

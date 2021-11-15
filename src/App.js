@@ -17,6 +17,7 @@ import LogoutContext from "./context/LogoutContext";
 import { Layout, Menu, Breadcrumb } from "antd";
 import "./css/AppCss.css";
 import 'antd/dist/antd.css';
+import CatFactInfo from "./components/CatFactInfo";
 
 function App() {
   const { Header, Content, Footer, Sider } = Layout;
@@ -41,6 +42,7 @@ function App() {
               <Route path="/home" component={Home} />
               <Route path="/login" component={Login} />
               <Route path="/catFacts" component={CatFactsPage} />
+              <Route path="/catFactInfo/:id" component={CatFactInfo} />
               <Route exact path="/">
                 <>{!isLoggedIn && <Redirect to={"/login"}></Redirect>}</>
               </Route>
