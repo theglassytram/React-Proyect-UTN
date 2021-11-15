@@ -1,5 +1,5 @@
 export interface CatFacts {
-  id: string;
+  _id: string;
   __v: number;
   text: string;
   updatedAt: Date;

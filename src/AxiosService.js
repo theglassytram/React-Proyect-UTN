@@ -7,5 +7,5 @@ export const getCatFacts = () => {
 };
 
 export const getSpecificCatFact = (id) => {
-  return AxiosRequest.get(`https://cat-fact.herokuapp.com/facts/:${id}`);
+  return AxiosRequest.get(`https://cat-fact.herokuapp.com/facts/${id}`);
 };

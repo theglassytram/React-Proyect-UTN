@@ -9,7 +9,7 @@ const CatFactInfo = () => {
   const { id }: { id: string | undefined } = useParams();
 
   useEffect(() => {
-    AxiosService.getSpecificCatFact({ id })
+    AxiosService.getSpecificCatFact(id)
       .then((data: any) => {
         setFactDetail(data);
       })

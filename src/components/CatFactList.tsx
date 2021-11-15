@@ -33,7 +33,7 @@ const CatFactList = () => {
         loading={loading}
         renderItem={(item: CatFacts) => (
           <List.Item>
-            <Link to={`/catFactInfo/${item.id}`}>
+            <Link to={`/catFactInfo/${item._id}`}>
               <Typography.Text mark>[Fact]</Typography.Text> {item.text}
             </Link>
           </List.Item>
