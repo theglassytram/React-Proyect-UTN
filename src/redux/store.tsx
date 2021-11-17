@@ -1,14 +1,26 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import userReducers from './reducers/userReducers';
-import { IACreateUser, IALogOutUser, IASignInUser, IASetDataUser } from '../interfaces/users/actions';
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
+import userReducers from "./reducers/userReducers";
+import {
+  IACreateUser,
+  IALogOutUser,
+  IASignInUser,
+  IASetDataUser,
+} from "../interfaces/Actions";
 
-const rootReducer = combineReducers({user: userReducers});
+const rootReducer = combineReducers({ user: userReducers });
 
-const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
-export type AuthAction = IACreateUser | IASignInUser | IALogOutUser | IASetDataUser;
+export type AuthAction =
+  | IACreateUser
+  | IASignInUser
+  | IALogOutUser
+  | IASetDataUser;
 
 export type RootState = ReturnType<typeof rootReducer>;
 
